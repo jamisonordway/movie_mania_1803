@@ -3,4 +3,9 @@ Rails.application.routes.draw do
  resources :movies, only: [:index]
  resources :directors, only: [:new, :create, :index]
 
+ scope :admin, module: :admin, as: :admin do
+	 resources :genres, only: [:new, :create, :index, :update, :destroy, :post]
+	end
+
+ resources :genres
 end
